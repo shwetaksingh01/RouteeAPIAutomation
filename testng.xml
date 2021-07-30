@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Routee SMS Test Suite">
+    <listeners>
+        <listener class-name="utils.ExtentReporterNG"/>
+    </listeners>
+    <test thread-count="5" name="RouteeTestSubmission">
+        <classes>
+            <class name="com.routee.RouteeSMSTest"/>
+        </classes>
+    </test> <!-- RouteeTestSubmission -->
+</suite> <!-- Routee SMS Test Suite-->
