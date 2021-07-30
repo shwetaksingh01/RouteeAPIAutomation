@@ -1,25 +1,34 @@
+
 pipeline {
+
     agent any
+    tools {
+        maven 'Maven_3.5.2' 
+    }
     stages {
-        stage('Checkout') {
+          stage('Checkout') {
             steps {
                  checkout scm
             }
         }
-        stage('Compile') {
+        stage('Compile stage') {
             steps {
-                    maven(maven : 'Maven_3.5.2'){
-                     sh 'mvn clean compile'
-                }
-            }
-        }
-        stage('Test') {
-           steps {
-                maven(maven : 'Maven_3.5.2')
-                {
-                     sh 'mvn test'
-                }
-            }
+                bat "mvn clean compile" 
         }
     }
+
+         stage('testing stage') {
+             steps {
+                bat "mvn test"
+        }
+    }
+
+          stage('deployment stage') {
+              steps {
+                bat "mvn deploy"
+        }
+    }
+
+  }
+
 }
