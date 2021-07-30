@@ -6,6 +6,11 @@
 mvn clean install
 ```
 
+## Run the Test
+```
+mvn clean test
+```
+
 ## Projects/Modules
 This project contains a number of modules, but here are the main ones you should focus on and run: 
 ```
