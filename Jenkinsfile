@@ -1,14 +1,25 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent any
     stages {
-        stage('checkout') {
+        stage('Checkout') {
             steps {
                  checkout scm
             }
         }
-        stage('build') {
+        stage('Compile') {
             steps {
-                sh 'mvn clean test'
+                withMaven(maven : 'maven_3_5_0')
+                {
+                     sh 'mvn clean compile'
+                }
+            }
+        }
+        stage('Test') {
+           steps {
+                withMaven(maven : 'maven_3_5_0')
+                {
+                     sh 'mvn test'
+                }
             }
         }
     }
