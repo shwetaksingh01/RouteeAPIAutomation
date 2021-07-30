@@ -8,15 +8,14 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                withMaven(maven : 'maven_3_5_0')
-                {
+                    maven(maven : 'Maven_3.5.2'){
                      sh 'mvn clean compile'
                 }
             }
         }
         stage('Test') {
            steps {
-                withMaven(maven : 'maven_3_5_0')
+                maven(maven : 'Maven_3.5.2')
                 {
                      sh 'mvn test'
                 }
