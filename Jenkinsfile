@@ -1,28 +1,15 @@
-
 pipeline {
-
-    agent any
-//     tools {
-//         maven 'Maven_3.5.2' 
-//     }
+    agent { docker { image 'maven:3.3.3' } }
     stages {
-          stage('Checkout') {
+        stage('checkout') {
             steps {
                  checkout scm
             }
         }
-        stage('Compile stage') {
+        stage('build') {
             steps {
-                sh "mvn clean compile" 
+                sh 'mvn clean test'
+            }
         }
     }
-
-         stage('testing stage') {
-             steps {
-                sh "mvn test"
-        }
-    }
-
-  }
-
 }
