@@ -32,12 +32,19 @@ public class LoginTest extends Base {
 
     @BeforeTest(alwaysRun = true)
     public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(chromeOptions);
+        chromeOptions.addArguments("--no-sandbox");
+ 
+        WebDriver driver = new ChromeDriver(chromeOptions);
+        
+        //ChromeOptions chromeOptions = new ChromeOptions();
+        //chromeOptions.addArguments("--headless");
+        //WebDriverManager.chromedriver().setup();
+        //driver = new ChromeDriver(chromeOptions);
 //        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(PropertyManager.getInstance().getTimeout(), TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(PropertyManager.getInstance().getTimeout(), TimeUnit.SECONDS);
         driver.get(loginUrl);
 
     }
