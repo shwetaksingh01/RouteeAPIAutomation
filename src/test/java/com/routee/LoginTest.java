@@ -36,7 +36,7 @@ public class LoginTest extends Base {
         chromeOptions.addArguments("--headless");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(chromeOptions);
-//        driver.manage().window().maximize();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(PropertyManager.getInstance().getTimeout(), TimeUnit.SECONDS);
         driver.get(loginUrl);
 
