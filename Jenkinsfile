@@ -7,9 +7,14 @@ pipeline {
         }
     }
     stages {
-        stage('Build') { 
+        stage('checkout') {
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                 checkout scm
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn clean install'
             }
         }
     }
