@@ -7,6 +7,7 @@
     <test thread-count="5" name="RouteeTestSubmission">
         <classes>
             <class name="com.routee.RouteeSMSTest"/>
+            <class name="com.routee.LoginTest"/>
         </classes>
     </test> <!-- RouteeTestSubmission -->
 </suite> <!-- Routee SMS Test Suite-->

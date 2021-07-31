@@ -44,15 +44,15 @@ public class Configuration {
 
     }
 
-    public String ReadProperty(String key) {
+    public static String readProperty(String key) {
         return prop.getProperty(key);
     }
 
     public static Token routeeAuth0Login() {
         Configuration conf = new Configuration();
-        String authUrl = conf.ReadProperty("oauthUrl");
-        String clientId = conf.ReadProperty("appClientId");
-        String clientSecret = conf.ReadProperty("appClientSecret");
+        String authUrl = conf.readProperty("oauthUrl");
+        String clientId = conf.readProperty("appClientId");
+        String clientSecret = conf.readProperty("appClientSecret");
         RestAssured.useRelaxedHTTPSValidation();
         String base64Secret;
         base64Secret = Base64.encodeBase64String(((clientId) + ":" + (clientSecret)).getBytes(StandardCharsets.UTF_8));
