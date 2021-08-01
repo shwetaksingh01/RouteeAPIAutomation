@@ -1,6 +1,7 @@
 package  utils;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeClass;
@@ -17,7 +18,9 @@ public class Base extends Configuration {
     private static Logger LOGGER = LoggerFactory.getLogger(Base.class);
 
     @BeforeClass(alwaysRun = true)
+
     public void init(){
+//        DOMConfigurator.configure("log4j.properties");
         Configuration.getConfig();
     }
 

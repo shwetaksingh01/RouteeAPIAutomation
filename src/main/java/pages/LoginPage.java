@@ -4,6 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import utils.PropertyManager;
+
+import java.sql.Time;
+import java.util.concurrent.TimeUnit;
 
 public class LoginPage {
 
@@ -29,12 +33,31 @@ public class LoginPage {
     @FindBy(xpath="//button[@type='submit' and contains(.,'Login')]")
     WebElement loginBtn;
 
+    @FindBy(id="pinInput")
+    WebElement pinInput;
 
-    //Method that performs login action using the web elements
-    public void LogIn_Action(String uName, String pwd){
+    @FindBy(xpath="//*[@id=\"verify\"]//button[@type='button' and contains(.,'Send')]")
+    WebElement sendButton;
+
+    @FindBy(xpath="//div[@class='ng-binding ng-scope' and contains(.,'Error during verification process.')]")
+    WebElement errorInVerification;
+
+     //Method that performs login action using the web elements
+    public void logIn(String uName, String pwd){
         username.sendKeys(uName);
         pswd.sendKeys(pwd);
         loginBtn.click();
+        driver.manage().timeouts().implicitlyWait(PropertyManager.getInstance().getTimeout(), TimeUnit.SECONDS);
+    }
+
+    public void clickSend(String otp){
+        pinInput.sendKeys(otp);
+        sendButton.click();
+    }
+
+    public void errorInVerificationDisplay(){
+        errorInVerification.isDisplayed();
+
     }
 }
 

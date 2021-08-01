@@ -4,9 +4,10 @@
     <listeners>
         <listener class-name="utils.ExtentReporterNG"/>
     </listeners>
-    <test thread-count="5" name="RouteeTestSubmission">
+    <test thread-count="5" name="RouteeAutomationTests">
         <classes>
             <class name="com.routee.RouteeSMSTest"/>
+            <class name="com.routee.LoginTest"></class>
         </classes>
     </test> <!-- RouteeTestSubmission -->
 </suite> <!-- Routee SMS Test Suite-->

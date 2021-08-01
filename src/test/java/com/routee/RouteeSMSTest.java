@@ -51,22 +51,21 @@ public class RouteeSMSTest extends Base {
 //        Scenario,payload,expectedStatusCode
 //                {"Message successfully sent", payloadForPost,HttpStatus.SC_OK},
                 {"You don't have enough balance to send the SMS.", payloadForPost,HttpStatus.SC_BAD_REQUEST},
-//                {"The sender id is invalid.",payloadForPost, HttpStatus.SC_BAD_REQUEST},
-//                {"Validation Error.",payloadForPost, HttpStatus.SC_BAD_REQUEST},
-//                {"A required field is missing.",payloadForPost,HttpStatus.SC_BAD_REQUEST},
-//                {"Invalid value of a field.",payloadForPost, HttpStatus.SC_BAD_REQUEST},
-//                {"You are unauthorized.", payloadForPost,HttpStatus.SC_BAD_REQUEST},
+                {"The sender id is invalid.",payloadForPost, HttpStatus.SC_BAD_REQUEST},
+                {"Validation Error.",payloadForPost, HttpStatus.SC_BAD_REQUEST},
+                {"A required field is missing.",payloadForPost,HttpStatus.SC_BAD_REQUEST},
+                {"Invalid value of a field.",payloadForPost, HttpStatus.SC_BAD_REQUEST},
+                {"You are unauthorized.", payloadForPost,HttpStatus.SC_BAD_REQUEST},
 //                {"Invalid access token, maybe has expired.", payloadForPost,HttpStatus.SC_UNAUTHORIZED},
-//                {"Validation Error.",payloadForPost, HttpStatus.SC_BAD_REQUEST},
-//                {"Access denied.", payloadForPost,HttpStatus.SC_BAD_REQUEST},
+                {"Validation Error.",payloadForPost, HttpStatus.SC_BAD_REQUEST},
+                {"Access denied.", payloadForPost,HttpStatus.SC_BAD_REQUEST},
 //                {"Your application's access token does not have the right to use SMS service.",payloadForPost, HttpStatus.SC_FORBIDDEN}
 
         };
     }
 
 
-
-    @Test(priority = 1,dataProvider="sendAnSMSDP")
+   @Test(priority = 1,dataProvider="sendAnSMSDP")
 
     public void sendAnSMSTest(String scenario, String payload, int expectedStatusCode) {
 

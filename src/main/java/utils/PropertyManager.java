@@ -14,6 +14,10 @@ public class PropertyManager {
     private static String userName;
     private static String password;
     private static long implicitTimeout;
+    private static String accountId;
+    private static String token;
+    private static  String twillioUserId;
+    private static String twillioPassword;
 
     //Create a Singleton instance. We need only one instance of Property Manager.
     public static PropertyManager getInstance() {
@@ -41,7 +45,13 @@ public class PropertyManager {
         url = prop.getProperty("loginUrl");
         userName = prop.getProperty("userId");
         password = prop.getProperty("password");
-        implicitTimeout= Long.parseLong(prop.getProperty("implicitTimeout"));
+        implicitTimeout = Long.parseLong(prop.getProperty("implicitTimeout"));
+        accountId = prop.getProperty("accountId");
+        token = prop.getProperty("token");
+        twillioUserId=prop.getProperty("twillioUserId");
+        twillioPassword=prop.getProperty("twillioPassword");
+
+
     }
 
     public String getURL() {
@@ -58,5 +68,22 @@ public class PropertyManager {
 
     public long getTimeout() {
         return implicitTimeout;
+    }
+
+
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public String getTwillioUserId() {
+        return twillioUserId;
+    }
+
+    public String getTwillioPassword() {
+        return twillioPassword;
     }
 }
