@@ -22,3 +22,9 @@ This project contains a number of modules, but here are the main ones you should
 ```
 `src/main/resources`: env.properties file
 ```
+
+```
+Jenkins job at below url
+```
+
+http://3.89.103.187:8080/job/RouteeAPIAutomation/
